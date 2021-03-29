@@ -1,5 +1,7 @@
 package com.example.Kotlin
 
+import android.view.inputmethod.InlineSuggestionsRequest
+
 //18.Class
 //OOP -> object Oriented Programing (객체지향 프로그래밍)
 //객체?
@@ -26,19 +28,110 @@ fun main(array: Array<String>) {
     //우리가 만든 클래스(설명서)는 자료형이 된다
     val bigCar1: Car = Car("v8 engine", "big")
 
+    //인스턴스가 가지고 있는 기능을 사용하는 방법
+    val superCar: SuperCar = SuperCar("good engine", "big", "white")
+    val runablecar :Runable = Runable("simple engine","short body")
+
+    runablecar.drive()
+    runablecar.ride()
+    runablecar.navi("부산")
+    //인스턴스 멤버 변수에 접근하는 방법
+    val runableCar2 :RunableCar2 = RunableCar2("nice engine","long body")
+    runableCar2.drive()
+    runableCar2.ride()
+    runableCar2.navi("울산")
+
+
 
 }
-
 //클래스(설명서) 만드는 방법(1) //var val 이런거 만들어줘야합니다.
 class Car(var engine: String, var body: String) {
 
 }
 //클래스 (설명서)만드는 방법(2)
-class SuperCar{
-    var engine : String
+class SuperCar {
+    var engine: String
     var body: String
-    var door : String
+    var door: String
 
-    constructor(engine : String, body : String, door: String)
+    constructor(engine: String, body: String, door: String) {
+        println(engine)
+        println(body)
+        println(door)
+        this.engine = engine
+        this.body = body
+        this.door = door
+    }
+}
+//클래스(설명서) 만드는 방법(3) ->1번 방법의 확장
+class Car1 constructor(engine: String, body:String){
+    var door :String =""
+    //생성자
+    constructor(engine:String, body: String, door: String): this(engine,body){
+        this.door =door
+    }
 
 }
+//설명서입니다...class는
+class Runable(engine:String, body: String){
+
+    fun ride(){
+        println("탑승하였습니다")
+    }
+    fun drive(){
+        println("출발합니다!")
+    }
+    fun navi(destination: String){
+        println("$destination 으로 목적지가 설정되었습니다")
+    }
+}
+
+class RunableCar2 {
+    var engine: String
+    var body: String
+
+    constructor(engine: String, body: String) {
+        this.engine = engine
+        this.body = body
+    }
+    init {
+        //초기 셋팅을 할때 유리하다
+        println("RunableCar2가 만들어졌습니다.")
+    }
+
+    fun ride() {
+        println("탑승하였습니다")
+    }
+
+    fun drive() {
+        println("출발합니다!")
+    }
+
+    fun navi(destination: String) {
+        println("$destination 으로 목적지가 설정되었습니다")
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
