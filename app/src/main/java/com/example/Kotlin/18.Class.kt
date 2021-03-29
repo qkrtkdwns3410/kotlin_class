@@ -41,6 +41,13 @@ fun main(array: Array<String>) {
     runableCar2.ride()
     runableCar2.navi("울산")
 
+    //오버로딩 실행
+    //->이름이 같지만 받는 파라미터가 다른 함수
+    val testclass =TestClass()
+    testclass.test(13)
+    testclass.test(13,24)
+
+
 
 
 }
@@ -109,6 +116,16 @@ class RunableCar2 {
 
     fun navi(destination: String) {
         println("$destination 으로 목적지가 설정되었습니다")
+    }
+}
+//오버로딩
+class TestClass(){
+
+    fun test(a:Int){
+    println("Up")
+    }
+    fun test(a: Int,b:Int){
+    println("Down")
     }
 }
 
