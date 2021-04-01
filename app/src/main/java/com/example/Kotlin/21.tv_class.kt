@@ -7,7 +7,6 @@ fun main(args: Array<String>) {
     tv.channelUp()
     println(tv.checkCurrentChannel())
     tv.channelUp()
-
 }
 
 class Tv(val channels: List<String>) {
